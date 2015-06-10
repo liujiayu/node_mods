@@ -60,6 +60,11 @@
             isEditable: null,
             isNewUser: null
           }
+        })
+        .state('facility', {
+          url: '/facility',
+          templateUrl: 'app/system/physical/facility.html',
+          controller: 'FacilityCtrl',
         });
 
       $urlRouterProvider.otherwise('/');
