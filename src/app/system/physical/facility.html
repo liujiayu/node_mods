@@ -39,6 +39,42 @@
         </div>
     </div>
     <div class="portlet-body">
-        
+        <div class="form-actions">
+            <div class="row">
+                <div class="form-group col-md-12 col-sm-12">
+                    <button type="button" class="btn btn-success" ng-click="addFacility()">Add</button>
+                    <label class="float-right">Show&nbsp;
+                        <ui-select ng-model="perPage" ng-init="perPage = 10" theme="select2" class="form-control input-inline" title="Choose one">
+                            <ui-select-match>{{$select.selected}}</ui-select-match>
+                            <ui-select-choices repeat="item in [5, 10, 20] | filter: $select.search">
+                                <div ng-bind-html="item | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    &nbsp;entries</label>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-striped table-hover dataTable">
+            <thead th-sorting th-ignored="4">
+                <th ng-show="showColumn1">Facility ID</th>
+                <th ng-show="showColumn2">Facility Full Name</th>
+                <th ng-show="showColumn3">Facility Short Name</th>
+                <th ng-show="showColumn4">Status</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="facility in facilities">
+                    <td ng-show="showColumn1">{{ facility.id }}</td>
+                    <td ng-show="showColumn2">{{ facility.fullName }}</td>
+                    <td ng-show="showColumn3">{{ facility.shortName }}</td>
+                    <td ng-show="showColumn4"><span class="label label-{{ facility.isActive ? 'success' : 'danger' }}">{{ facility.isActive ? 'Active' : 'Inactive'; }}</span></td>
+                    <td>
+                        <a href="" ng-click="displayFacility(facility)"><i class="fa fa-search-plus"></i></a>
+                        <a href="" ng-click="editFacility(facility)"><i class="fa fa-pencil"></i></a>
+                        <a href="" ng-click="deleteFacility(facility)"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
