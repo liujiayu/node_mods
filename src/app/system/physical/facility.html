@@ -67,7 +67,7 @@
                     <td ng-show="showColumn1">{{ facility.id }}</td>
                     <td ng-show="showColumn2">{{ facility.fullName }}</td>
                     <td ng-show="showColumn3">{{ facility.shortName }}</td>
-                    <td ng-show="showColumn4"><span class="label" ng-class="{ 'label-success': facility.status === 'Active', 'label-danger': facility.status === 'Inactive' }">{{ facility.status }}</span></td>
+                    <td ng-show="showColumn4"><span class="label" ng-class="{ 'Active': 'label-success' , 'Inactive': 'label-danger' }[facility.status]">{{ facility.status }}</span></td>
                     <td>
                         <a href="" ng-click="displayFacility(facility)"><i class="fa fa-search-plus"></i></a>
                         <a href="" ng-click="editFacility(facility)"><i class="fa fa-pencil"></i></a>
