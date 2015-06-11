@@ -183,8 +183,10 @@ var FormWizard = function () {
 
                 if (current == 1) {
                     $('#form_wizard_1').find('.button-previous').hide();
+                    $('#form_wizard_1').find('.button-cancel').show();
                 } else {
                     $('#form_wizard_1').find('.button-previous').show();
+                    $('#form_wizard_1').find('.button-cancel').hide();
                 }
 
                 if (current >= total) {
