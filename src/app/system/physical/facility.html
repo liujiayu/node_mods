@@ -34,8 +34,18 @@
         <div class="caption">
             <i class="fa fa-globe"></i>Facility List
         </div>
-        <div class="tools">
-            <a href="" class="collapse"></a>
+        <div class="actions">
+            <div class="btn-group">
+                <a class="btn default" data-toggle="dropdown">
+                Columns <i class="fa fa-angle-down"></i>
+                </a>
+                <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                    <label><input type="checkbox" checked ng-model="showColumn1">Facility ID</label>
+                    <label><input type="checkbox" checked ng-model="showColumn2">Facility Full Name</label>
+                    <label><input type="checkbox" checked ng-model="showColumn3">Facility Short Name</label>
+                    <label><input type="checkbox" checked ng-model="showColumn4">Status</label>
+                </div>
+            </div>
         </div>
     </div>
     <div class="portlet-body">
