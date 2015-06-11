@@ -5,8 +5,8 @@
     .module('qcs')
     .controller('FacilityCtrl', FacilityCtrl);
 
-    FacilityCtrl.$inject = ['$scope'];
-    function FacilityCtrl($scope) {
+    FacilityCtrl.$inject = ['$scope', '$state'];
+    function FacilityCtrl($scope, $state) {
       // Scope variables
       $scope.facilities = [
         {
@@ -50,6 +50,7 @@
       }
 
       function editFacility(facility) {
+        $state.go('facility-edit', { facilityId: facility.id });
       }
 
       function deleteFacility(facility) {

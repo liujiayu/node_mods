@@ -64,7 +64,15 @@
         .state('facility', {
           url: '/facility',
           templateUrl: 'app/system/physical/facility.html',
-          controller: 'FacilityCtrl',
+          controller: 'FacilityCtrl'
+        })
+        .state('facility-edit', {
+          url: '/facility/:facilityId',
+          templateUrl: 'app/system/physical/facility-edit.html',
+          controller: 'FacilityEditCtrl',
+          params: { 
+            facilityId: null, 
+          }
         });
 
       $urlRouterProvider.otherwise('/');
