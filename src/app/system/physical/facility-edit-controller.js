@@ -7,6 +7,8 @@
 
     FacilityEditCtrl.$inject = ['$scope', '$state', '$stateParams'];
     function FacilityEditCtrl($scope, $state, $stateParams) {
+      FormWizard.init();
+      
       // Scope variables
       // Scope actions
       $scope.back = back;

@@ -29,13 +29,109 @@
         </li>
     </ul>
 </div>
-<div class="portlet box blue-madison">
+<div class="portlet box blue-madison" id="form_wizard_1">
     <div class="portlet-title">
         <div class="caption">
             <i class="fa fa-gift"></i>Edit Facility
         </div>
     </div>
-    <div class="portlet-body">
-        
-    </div>
+    <div class="portlet-body form">
+		<form action="#" class="form-horizontal" id="submit_form" method="POST">
+			<div class="form-wizard">
+				<div class="form-body">
+					<!-- Form Wizard Steps -->
+					<ul class="nav nav-pills nav-justified steps">
+						<li>
+							<a href="#tab1" data-toggle="tab" class="step">
+							<span class="number">
+							1 </span>
+							<span class="desc">
+							<i class="fa fa-check"></i> Main Record </span>
+							</a>
+						</li>
+						<li>
+							<a href="#tab2" data-toggle="tab" class="step">
+							<span class="number">
+							2 </span>
+							<span class="desc">
+							<i class="fa fa-check"></i> Coporate Structure </span>
+							</a>
+						</li>
+						<li>
+							<a href="#tab3" data-toggle="tab" class="step active">
+							<span class="number">
+							3 </span>
+							<span class="desc">
+							<i class="fa fa-check"></i> Facility Contacts </span>
+							</a>
+						</li>
+						<li>
+							<a href="#tab4" data-toggle="tab" class="step">
+							<span class="number">
+							4 </span>
+							<span class="desc">
+							<i class="fa fa-check"></i> Type of Activity </span>
+							</a>
+						</li>
+						<li>
+							<a href="#tab5" data-toggle="tab" class="step">
+							<span class="number">
+							5 </span>
+							<span class="desc">
+							<i class="fa fa-check"></i> Operating Hours </span>
+							</a>
+						</li>
+						<li>
+							<a href="#tab6" data-toggle="tab" class="step">
+							<span class="number">
+							6 </span>
+							<span class="desc">
+							<i class="fa fa-check"></i> Facility Tasks </span>
+							</a>
+						</li>
+					</ul>
+					<!-- Form Wizard Content -->
+					<div class="tab-content">
+						<div class="alert alert-danger display-none">
+							<button class="close" data-dismiss="alert"></button>
+							You have some form errors. Please check below.
+						</div>
+						<div class="alert alert-success display-none">
+							<button class="close" data-dismiss="alert"></button>
+							Your form validation is successful!
+						</div>
+
+						<!-- Step 1 -->
+						<div class="tab-pane active" id="tab1">
+							<h3 class="block">Facility Info</h3>
+						</div>
+
+						<!-- Step 2 -->
+						<div class="tab-pane" id="tab2">
+							<h3 class="block">Provide your profile details</h3>
+							
+						</div>
+					</div>
+				</div>
+				<div class="form-actions">
+					<div class="row">
+						<div class="col-md-offset-3 col-md-9">
+							<a ui-sref="facility" class="btn default button-cancel">
+								<i class="fa fa-mail-reply"></i> Cancel
+							</a>
+							<a href="javascript:;" class="btn default button-previous">
+								<i class="m-icon-swapleft"></i> Back 
+							</a>
+							<a href="javascript:;" class="btn blue button-next">
+								Continue <i class="m-icon-swapright m-icon-white"></i>
+							</a>
+							<a href="javascript:;" class="btn green button-submit">
+								Submit <i class="m-icon-swapright m-icon-white"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>
