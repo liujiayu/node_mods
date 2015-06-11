@@ -10,16 +10,22 @@
       // Scope variables
       $scope.facilities = [
         {
-          id: '001',
-          fullName: 'facility 001',
-          shortName: 'f001',
-          isActive: true
+          "id": "001",
+          "fullName": "Facility A",
+          "shortName": "FA",
+          "status": "Active"
         },
         {
-          id: '810',
-          fullName: 'facility 810',
-          shortName: 'f810',
-          isActive: false
+          "id": "002",
+          "fullName": "Facility B",
+          "shortName": "FB",
+          "status": "Inactive"
+        },
+        {
+          "id": "003",
+          "fullName": "Facility C",
+          "shortName": "FC",
+          "status": "Active"
         }
       ];
 
