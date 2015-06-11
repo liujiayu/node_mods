@@ -181,14 +181,6 @@ var FormWizard = function () {
                     jQuery(li_list[i]).addClass("done");
                 }
 
-                if (current == 1) {
-                    $('#form_wizard_1').find('.button-previous').hide();
-                    $('#form_wizard_1').find('.button-cancel').show();
-                } else {
-                    $('#form_wizard_1').find('.button-previous').show();
-                    $('#form_wizard_1').find('.button-cancel').hide();
-                }
-
                 if (current >= total) {
                     $('#form_wizard_1').find('.button-next').hide();
                     $('#form_wizard_1').find('.button-submit').show();
@@ -196,6 +188,18 @@ var FormWizard = function () {
                 } else {
                     $('#form_wizard_1').find('.button-next').show();
                     $('#form_wizard_1').find('.button-submit').hide();
+                }
+
+                if (current == 1) {
+                    $('#form_wizard_1').find('.button-previous').hide();
+                    $('#form_wizard_1').find('.button-next').hide();
+                    $('#form_wizard_1').find('.button-cancel').show();
+                    $('#form_wizard_1').find('#button-save').show();
+                } else {
+                    $('#form_wizard_1').find('.button-previous').show();
+                    $('#form_wizard_1').find('.button-next').show();
+                    $('#form_wizard_1').find('.button-cancel').hide();
+                    $('#form_wizard_1').find('#button-save').hide();
                 }
                 Metronic.scrollTo($('.page-title'));
             }
@@ -239,6 +243,10 @@ var FormWizard = function () {
                         width: $percent + '%'
                     });
                 }
+            });
+
+            $('#button-save').click(function(){
+                $('#form_wizard_1').bootstrapWizard('next');
             });
 
             $('#form_wizard_1').find('.button-previous').hide();
