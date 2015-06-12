@@ -1,0 +1,32 @@
+<div class="form-actions">
+    <div class="row">
+        <div class="form-group col-md-12 col-sm-12">
+            <button type="button" class="btn btn-success" ng-click="actionCreate()">Add</button>
+            <label class="float-right">Show&nbsp;
+                <ui-select ng-model="perPage" ng-init="perPage = 10" theme="select2" class="form-control input-inline" title="Choose one">
+                    <ui-select-match>{{$select.selected}}</ui-select-match>
+                    <ui-select-choices repeat="item in [5, 10, 20] | filter: $select.search">
+                        <div ng-bind-html="item | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+            &nbsp;entries</label>
+        </div>
+    </div>
+</div>
+<table class="table table-bordered table-striped table-hover dataTable">
+    <thead>
+        <th ng-repeat="colunmName in tableHead">{{ colunmName }}</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in tableSource">
+            <td ng-repeat="fieldName in tableCell">{{ row[fieldName] }}</td>
+            <!-- <td ng-show="showColumn4"><span class="label" ng-class="{ 'Active': 'label-success' , 'Inactive': 'label-danger' }[row.status]">{{ row.status }}</span></td> -->
+            <td>
+                <a href="" ng-click="actionRead(row)"><i class="fa fa-search-plus"></i></a>
+                <a href="" ng-click="actionUpdate(row)"><i class="fa fa-pencil"></i></a>
+                <a href="" ng-click="actionDelete(row)"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
