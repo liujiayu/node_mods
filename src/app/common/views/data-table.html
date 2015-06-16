@@ -14,8 +14,8 @@
     </div>
 </div>
 <table class="table table-bordered table-striped table-hover dataTable">
-    <thead th-sorting th-ignored="4">
-        <th ng-repeat="colunmName in tableHead" ng-click="orderBy(tableCell[$index])">{{ colunmName }}</th>
+    <thead>
+        <th ng-repeat="colunmName in tableHead" ng-click="orderBy(tableCell[$index])" ng-class="{ 'sorting_asc': orderByField === tableCell[$index] && orderReverse === false, 'sorting_desc': orderByField === tableCell[$index] && orderReverse === true }" class="sorting">{{ colunmName }}</th>
         <th></th>
     </thead>
     <tbody>
