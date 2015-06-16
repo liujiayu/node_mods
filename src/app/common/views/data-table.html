@@ -14,7 +14,7 @@
     </div>
 </div>
 <table class="table table-bordered table-striped table-hover dataTable">
-    <thead>
+    <thead th-sorting th-ignored="4">
         <th ng-repeat="colunmName in tableHead" ng-click="orderBy(tableCell[$index])">{{ colunmName }}</th>
         <th></th>
     </thead>
