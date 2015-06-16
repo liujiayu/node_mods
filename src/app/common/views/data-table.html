@@ -15,11 +15,11 @@
 </div>
 <table class="table table-bordered table-striped table-hover dataTable">
     <thead>
-        <th ng-repeat="colunmName in tableHead">{{ colunmName }}</th>
+        <th ng-repeat="colunmName in tableHead" ng-click="orderBy(tableCell[$index])">{{ colunmName }}</th>
         <th></th>
     </thead>
     <tbody>
-        <tr ng-repeat="row in tableSource | smarterLimitTo: pagination.perPage : ((pagination.current - 1) * pagination.perPage)">
+        <tr ng-repeat="row in tableSource | orderBy: orderByField : orderReverse | smarterLimitTo: pagination.perPage : ((pagination.current - 1) * pagination.perPage)">
             <td ng-repeat="fieldName in tableCell">{{ row[fieldName] }}</td>
             <!-- <td ng-show="showColumn4"><span class="label" ng-class="{ 'Active': 'label-success' , 'Inactive': 'label-danger' }[row.status]">{{ row.status }}</span></td> -->
             <td>
