@@ -3,7 +3,7 @@
         <div class="form-group col-md-12 col-sm-12">
             <button type="button" class="btn btn-success" ng-click="actionCreate()">Add</button>
             <label class="float-right">Show&nbsp;
-                <ui-select ng-model="perPage" ng-init="perPage = 10" theme="select2" class="form-control input-inline" title="Choose one">
+                <ui-select ng-model="pagination.perPage" theme="select2" class="form-control input-inline" title="Choose one">
                     <ui-select-match>{{$select.selected}}</ui-select-match>
                     <ui-select-choices repeat="item in [5, 10, 20] | filter: $select.search">
                         <div ng-bind-html="item | highlight: $select.search"></div>
@@ -19,7 +19,7 @@
         <th></th>
     </thead>
     <tbody>
-        <tr ng-repeat="row in tableSource">
+        <tr ng-repeat="row in tableSource | smarterLimitTo: pagination.perPage : ((pagination.current - 1) * pagination.perPage)">
             <td ng-repeat="fieldName in tableCell">{{ row[fieldName] }}</td>
             <!-- <td ng-show="showColumn4"><span class="label" ng-class="{ 'Active': 'label-success' , 'Inactive': 'label-danger' }[row.status]">{{ row.status }}</span></td> -->
             <td>
@@ -30,3 +30,4 @@
         </tr>
     </tbody>
 </table>
+<pagination class="pagination pull-right" ng-model="pagination.current" total-items="pagination.total" items-per-page="pagination.perPage" max-size="pagination.maxSize" boundary-links="true" rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>

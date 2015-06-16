@@ -19,7 +19,12 @@
           actionDelete: '='
         },
         link: function(scope, elem, attr) {
-          
+          scope.pagination = {
+            total: scope.tableSource.length,
+            perPage: 10,
+            current: 1,
+            maxSize: 10
+          }
         }
 
       };

@@ -1,3 +1,6 @@
+<basic-table table-source="facilities" table-head="colunmName" table-cell="fieldName" action-update="editFacility">
+</basic-table>
+
 <h3 class="page-title">
     Facility <small>facility samples</small>
 </h3>
@@ -73,7 +76,7 @@
                 <th></th>
             </thead>
             <tbody>
-                <tr ng-repeat="facility in facilities">
+                <tr ng-repeat="facility in facilities | limitTo : 10">
                     <td ng-show="showColumn1">{{ facility.id }}</td>
                     <td ng-show="showColumn2">{{ facility.fullName }}</td>
                     <td ng-show="showColumn3">{{ facility.shortName }}</td>
@@ -89,5 +92,3 @@
     </div>
 </div>
 
-<basic-table table-source="facilities" table-head="colunmName" table-cell="fieldName" action-update="editFacility">
-</basic-table>
