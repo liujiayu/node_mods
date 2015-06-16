@@ -10,14 +10,19 @@
         restrict: 'E',
         templateUrl: '/app/common/views/data-table.html',
         scope: {
+          tableTitle: '=',
           tableSource: '=',
           tableHead: '=',
           tableCell: '=',
+          labelIndex: '=',
+          labelSuccess: '=',
+          labelDanger: '=',
           actionCreate: '=',
           actionRead: '=',
           actionUpdate: '=',
           actionDelete: '='
         },
+
         link: function(scope, elem, attr) {
           // Local variables
           var total, current, perPage, isLastPage;
@@ -30,7 +35,7 @@
             current: 1,
             maxSize: 10
           }
-          
+          scope.showColumn = [];
           scope.orderByField = scope.tableCell[0];
           scope.orderReverse = false;
 
@@ -40,7 +45,8 @@
 
 
           // Init
-          updatePageInfo()
+          updatePageInfo();
+          initColumnVariable();
 
 
           // Listener
@@ -73,8 +79,13 @@
               total: total
             };
           }
-        }
 
+          function initColumnVariable() {
+            for (var i = 0; i < scope.tableHead.length; i++) {
+              scope.showColumn.push(true);
+            }
+          }
+        }
       };
     };
 
