@@ -14,31 +14,31 @@
       $scope.role.selected = [];
       $scope.roles = [
         {
-            "roleId": 1,
+            "id": 1,
             "code": "ROOT",
             "name": null,
             "level": 0
         },
         {
-            "roleId": 2,
+            "id": 2,
             "code": "EHS_ADM",
             "name": null,
             "level": 1
         },
         {
-            "roleId": 3,
+            "id": 3,
             "code": "EHS_SPE",
             "name": null,
             "level": 2
         },
         {
-            "roleId": 4,
+            "id": 4,
             "code": "EHS_USR",
             "name": null,
             "level": 2
         },
         {
-            "roleId": 5,
+            "id": 5,
             "code": "GUEST",
             "name": null,
             "level": 9
@@ -59,7 +59,7 @@
       // Init
       if(!$stateParams.isNewUser) {
         UserService.getUser($stateParams.userId)
-          .then(getUserSuccess, errorCallback);  
+          .then(getUserSuccess, errorCallback);
       } else {
         $scope.user = {};
       }
@@ -98,7 +98,7 @@
         $scope.user = response.data.DATA;
         $scope.role.selected = response.data.DATA.roleDTOs;
 
-        // Mannually set value, becasue API return null for these 3 fields. 
+        // Mannually set value, becasue API return null for these 3 fields.
         // $scope.user.lockStatus = false;
         // $scope.user.disabledStatus = false;
         // $scope.user.defaultLang = 'English';
