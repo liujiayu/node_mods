@@ -53,6 +53,7 @@
       $scope.addUser = addUser;
       $scope.getUser = getUser;
       $scope.updateUser = updateUser;
+      $scope.next = next;
       $scope.cancel = cancel;
 
 
@@ -84,6 +85,10 @@
         $scope.user.roleDTOs = $scope.role.selected;
         UserService.updateUser(angular.toJson(user))
           .then(updateUserSuccess, errorCallback);
+      }
+
+      function next(user) {
+        $state.go('user-facility', { userId: user.id });
       }
 
       function cancel() {

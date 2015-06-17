@@ -1,0 +1,30 @@
+<h3 class="page-title">
+    User Management
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a ui-sref="tool">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a>System Setup</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a>System Management</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a  ui-sref="user">User Management</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a ui-sref="facility">Edit User</a>
+        </li>
+    </ul>
+</div>
+<basic-table table-title="'Facility List'" table-source="facilities" table-head="colunmName" table-cell="fieldName" action-update="editFacility" label-index="3" label-success="'Active'" label-danger="'Inactive'">
+</basic-table>
+<input type="button" class="btn btn-default" value="Back" ng-click="back()">

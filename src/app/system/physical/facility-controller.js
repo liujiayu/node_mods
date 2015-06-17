@@ -26,65 +26,8 @@
           "fullName": "Facility C",
           "shortName": "FC",
           "status": "Active"
-        },
-        {
-          "id": "004",
-          "fullName": "Facility A",
-          "shortName": "FA",
-          "status": "Active"
-        },
-        {
-          "id": "005",
-          "fullName": "Facility B",
-          "shortName": "FB",
-          "status": "Inactive"
-        },
-        {
-          "id": "006",
-          "fullName": "Facility C",
-          "shortName": "FC",
-          "status": "Active"
-        },
-        {
-          "id": "007",
-          "fullName": "Facility A",
-          "shortName": "FA",
-          "status": "Active"
-        },
-        {
-          "id": "008",
-          "fullName": "Facility B",
-          "shortName": "FB",
-          "status": "Inactive"
-        },
-        {
-          "id": "009",
-          "fullName": "Facility C",
-          "shortName": "FC",
-          "status": "Active"
-        },
-        {
-          "id": "010",
-          "fullName": "Facility A",
-          "shortName": "FA",
-          "status": "Active"
-        },
-        {
-          "id": "011",
-          "fullName": "Facility B",
-          "shortName": "FB",
-          "status": "Inactive"
-        },
-        {
-          "id": "012",
-          "fullName": "Facility C",
-          "shortName": "FC",
-          "status": "Active"
         }
       ];
-
-      $scope.colunmName = ['Facility ID', 'Facility Full Name', 'Facility Short Name', 'Status'];
-      $scope.fieldName = ['id', 'fullName', 'shortName', 'status'];
 
       $scope.showColumn1 = true;
       $scope.showColumn2 = true;

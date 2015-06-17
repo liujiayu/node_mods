@@ -9,11 +9,19 @@
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <a ui-sref="user">User Management</a>
+            <a>System Setup</a>
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <a ui-sref="user-detail">User Management Detail</a>
+            <a>System Management</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a  ui-sref="user">User Management</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a ui-sref="facility">Edit User</a>
         </li>
     </ul>
 </div>
@@ -107,8 +115,9 @@
                     </fieldset>
                     <div class="pull-right">
                         <input type="submit" class="btn btn-success" value="Add" ng-if="isNewUser">
-                        <input type="button" class="btn btn-success" value="Update" ng-if="!isNewUser" ng-click="updateUser(user)" ng-disabled="!isEditable">
                         <input type="button" class="btn btn-default" value="Cancel" ng-click="cancel()">
+                        <input type="button" class="btn btn-default" value="Continue" ng-click="next(user)">
+                        <input type="button" class="btn btn-success" value="Update" ng-if="!isNewUser" ng-click="updateUser(user)" ng-disabled="!isEditable">
                     </div>
                 </form>
             </div>
