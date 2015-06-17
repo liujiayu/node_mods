@@ -5,8 +5,8 @@
     .module('qcs')
     .controller('UserCtrl', UserCtrl);
 
-    UserCtrl.$inject = ['$scope', '$modal', '$state', 'UserService'];
-    function UserCtrl($scope, $modal, $state, UserService) {
+    UserCtrl.$inject = ['$scope', '$modal', '$state', 'UserService', 'QueryService'];
+    function UserCtrl($scope, $modal, $state, UserService, QueryService) {
       // Scope variables
       $scope.loading = true;
       $scope.users = [];
@@ -16,20 +16,7 @@
       $scope.showColumn3 = true;
       $scope.showColumn4 = true;
 
-      $scope.queryOption = {
-        pagination: {
-          current: 1,
-          total: null,
-          perPage: 10,
-          maxSize: 5
-        },
-        search: {
-        },
-        orderBy: {
-          name: null,
-          type: true
-        }
-      };
+      $scope.queryOption = QueryService.getDefaultQueryOption();
 
       $scope.search = {
           login_id: null,
@@ -139,7 +126,7 @@
 
       function initListener() {
         $scope.$watch('queryOption', function(newValue, oldValue) {
-          if (newValue !== oldValue) { 
+          if (newValue !== oldValue) {
             $scope.loading = true;
             UserService.getUsers($scope.queryOption)
               .then(getUserSuccess, errorCallback);
