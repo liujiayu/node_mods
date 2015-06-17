@@ -63,8 +63,12 @@
                 </tr>
             </tbody>
         </table>
-        <small>
-            Showing {{ pageInfo.first }} - {{ pageInfo.last }} of {{ pageInfo.total }} entries.
-        </small>
-        <pagination class="pagination pull-right" ng-model="pagination.current" total-items="pagination.total" items-per-page="pagination.perPage" max-size="pagination.maxSize" boundary-links="true" rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                Showing {{ pageInfo.first }} - {{ pageInfo.last }} of {{ pageInfo.total }} entries.
+            </div>
+            <div class="col-md-7 col-sm-12">
+                <pagination class="pagination pull-right" ng-model="pagination.current" total-items="pagination.total" items-per-page="pagination.perPage" max-size="pagination.maxSize" boundary-links="true" rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+            </div>
+        </div>
     </div>
