@@ -20,8 +20,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="portlet box blue-madison">
-            <div class="portlet-title" ng-switch="user.id || 'null'">
-                <div class="caption" ng-switch-when="null">
+            <div class="portlet-title" ng-switch="isNewUser">
+                <div class="caption" ng-switch-when="true">
                     <i class="fa fa-plus" ></i>Add User
                 </div>
                 <div class="caption" ng-switch-default>
