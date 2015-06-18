@@ -1,0 +1,9 @@
+<a class="btn default" data-toggle="dropdown">
+Columns <i class="fa fa-angle-down"></i>
+</a>
+<div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+    <label ng-repeat="column in columnName">
+        <input type="checkbox" checked ng-model="showColumn[$index]" uniform-style>
+        {{ column }}
+    </label>
+</div>
