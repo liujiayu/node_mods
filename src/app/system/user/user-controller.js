@@ -29,18 +29,9 @@
           role_name: []
       };
 
-      $scope.default_locale = [
-        {
-          name: 'en_US',
-          value: 'English'
-        },
-        {
-          name: 'zh_CN',
-          value: 'Simplified Chinese'
-        }
-      ];
+      $scope.default_locale = [];
 
-      $scope.roles = ['Super Admin', 'EHS Admin', 'EHS Specialist', 'EHS User', 'Guest'];
+      $scope.roles = [];
 
 
       // Scope actions
@@ -61,6 +52,8 @@
         .then(getUserSuccess, errorCallback)
         .then(initListener);
 
+      UserService.getInitData()
+        .then(initData, errorCallback);
 
       // Functions
       function addUser() {
@@ -118,6 +111,12 @@
       function deleteUserSuccess(response) {
         UserService.getUsers($scope.queryOption)
           .then(getUserSuccess, errorCallback);
+      }
+
+      function initData(response){
+        console.log(response);
+        $scope.default_locale = response.DATA.languageList;
+        $scope.roles = response.DATA.roleList;
       }
 
       function errorCallback(error) {

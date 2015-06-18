@@ -5,13 +5,15 @@
     .module('qcs')
     .factory('UserService', UserService);
 
-    UserService.$inject = ['$http', 'api', 'QueryService'];
-    function UserService($http, api, QueryService) {
+    UserService.$inject = ['$http', 'api', 'QueryService', '$q'];
+    function UserService($http, api, QueryService, $q) {
       var config = {
         headers: {
          'Content-Type': 'application/json'
         }
       };
+
+      var deferred = $q.defer();
 
       return {
         getUsers: function(queryOption) {
@@ -34,7 +36,19 @@
 
         deleteUser: function(id) {
           return $http.delete(api.user + id);
+        },
+
+        getInitData: function(){
+          // let defer to cache the response since we dont want to always make the call to server
+          // this way user and user-detail can share one data
+          $http.get(api.user + 'initData').success(function(response) {
+            deferred.resolve({
+              DATA: response.DATA
+            });
+          });
+          return deferred.promise;
         }
+
       }
     }
 })();

@@ -12,38 +12,7 @@
       $scope.isEditable = $stateParams.isEditable;
       $scope.role = {}
       $scope.role.selected = [];
-      $scope.roles = [
-        {
-            "id": 1,
-            "code": "ROOT",
-            "name": null,
-            "level": 0
-        },
-        {
-            "id": 2,
-            "code": "EHS_ADM",
-            "name": null,
-            "level": 1
-        },
-        {
-            "id": 3,
-            "code": "EHS_SPE",
-            "name": null,
-            "level": 2
-        },
-        {
-            "id": 4,
-            "code": "EHS_USR",
-            "name": null,
-            "level": 2
-        },
-        {
-            "id": 5,
-            "code": "GUEST",
-            "name": null,
-            "level": 9
-        }
-      ];
+      $scope.roles = [];
 
       console.log('isNewUser: ', $stateParams.isNewUser);
       console.log('isEditable: ', $stateParams.isEditable);
@@ -64,6 +33,8 @@
         $scope.user = {};
       }
 
+      UserService.getInitData()
+        .then(initData, errorCallback);
 
       // Functions
       function addUser(user) {
@@ -115,6 +86,10 @@
         $state.go('user');
       }
 
+      function initData(response){
+        $scope.default_locale = response.DATA.languageList;
+        $scope.roles = response.DATA.roleList;
+      }
       function errorCallback(error) {
         console.log(error)
       }
