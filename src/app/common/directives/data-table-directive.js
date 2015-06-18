@@ -9,14 +9,16 @@
       return {
         restrict: 'E',
         templateUrl: '/app/common/views/data-table.html',
+        replace: true,
         scope: {
-          tableTitle: '=',
           tableSource: '=',
           tableHead: '=',
           tableCell: '=',
           labelIndex: '=',
           labelSuccess: '=',
           labelDanger: '=',
+          toggleColumnActive: '=',
+          toggleColumnSource: '=',
           actionCreate: '=',
           actionRead: '=',
           actionUpdate: '=',
@@ -35,9 +37,9 @@
             current: 1,
             maxSize: 10
           }
-          scope.showColumn = [];
           scope.orderByField = scope.tableCell[0];
           scope.orderReverse = false;
+          scope.showColumn = [];
 
 
           // Scope actions
@@ -46,7 +48,7 @@
 
           // Init
           updatePageInfo();
-          initColumnVariable();
+          initToggleColumn();
 
 
           // Listener
@@ -80,9 +82,13 @@
             };
           }
 
-          function initColumnVariable() {
-            for (var i = 0; i < scope.tableHead.length; i++) {
-              scope.showColumn.push(true);
+          function initToggleColumn() {
+            if (scope.toggleColumnActive) {
+              scope.showColumn = scope.toggleColumnSource;
+            } else {
+              for( var i = 0; i <= scope.tableHead.length; i++) {
+                scope.showColumn.push(true);
+              }
             }
           }
         }

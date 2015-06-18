@@ -1,40 +1,21 @@
-<div class="portlet box blue-madison">
-    <div class="portlet-title">
-        <div class="caption">
-            <i class="fa fa-globe"></i>{{ tableTitle }}
-        </div>
-        <div class="actions">
-            <div class="btn-group">
-                <a class="btn default" data-toggle="dropdown">
-                Columns <i class="fa fa-angle-down"></i>
-                </a>
-                <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
-                    <label ng-repeat="colunmName in tableHead">
-                        <input type="checkbox" checked ng-model="showColumn[$index]" uniform-style>
-                        {{ colunmName }}
-                    </label>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portlet-body clearfix">
-        <div class="form-actions">
-            <div class="row">
-                <div class="form-group col-md-12 col-sm-12">
-                    <button type="button" class="btn btn-success" ng-click="actionCreate()">Add</button>
-                    <div class="form-inline float-right">
-                        <div class="form-group">
-                             <label>
-                                Show&nbsp;
-                                <ui-select ng-model="pagination.perPage" theme="select2" class="form-control input-inline" title="Choose one">
-                                    <ui-select-match>{{$select.selected}}</ui-select-match>
-                                    <ui-select-choices repeat="item in [5, 10, 20] | filter: $select.search">
-                                        <div ng-bind-html="item | highlight: $select.search"></div>
-                                    </ui-select-choices>
-                                </ui-select>
-                                &nbsp;entries
-                            </label>
-                        </div>
+
+<div class="portlet-body clearfix">
+    <div class="form-actions">
+        <div class="row">
+            <div class="form-group col-md-12 col-sm-12">
+                <button type="button" class="btn btn-success" ng-click="actionCreate()">Add</button>
+                <div class="form-inline float-right">
+                    <div class="form-group">
+                         <label>
+                            Show&nbsp;
+                            <ui-select ng-model="pagination.perPage" theme="select2" class="form-control input-inline" title="Choose one">
+                                <ui-select-match>{{$select.selected}}</ui-select-match>
+                                <ui-select-choices repeat="item in [5, 10, 20] | filter: $select.search">
+                                    <div ng-bind-html="item | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                            &nbsp;entries
+                        </label>
                     </div>
                 </div>
                 <div class="form-group col-md-12 col-sm-12">
@@ -45,32 +26,33 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <table class="table table-bordered table-striped table-hover dataTable">
-            <thead>
-                <th ng-repeat="colunmName in tableHead" ng-show="showColumn[$index]" ng-click="orderBy(tableCell[$index])" ng-class="{ 'sorting_asc': orderByField === tableCell[$index] && orderReverse === false, 'sorting_desc': orderByField === tableCell[$index] && orderReverse === true }" class="sorting">{{ colunmName }}</th>
-                <th></th>
-            </thead>
-            <tbody>
-                <tr ng-repeat="row in tableSource | filter: searchText | orderBy: orderByField : orderReverse | smarterLimitTo: pagination.perPage : ((pagination.current - 1) * pagination.perPage)">
-                    <td ng-repeat="fieldName in tableCell" ng-show="showColumn[$index]">
-                        <span ng-if="labelIndex !== $index">{{ row[fieldName] }}</span>
-                        <span ng-if="labelIndex === $index" class="label" ng-class="{ {{ labelSuccess }}: 'label-success', {{ labelDanger }}: 'label-danger' }[row.status]">{{ row.status }}</span>
-                    </td>
-                    <td>
-                        <a href="" ng-click="actionRead(row)"><i class="fa fa-search-plus"></i></a>
-                        <a href="" ng-click="actionUpdate(row)"><i class="fa fa-pencil"></i></a>
-                        <a href="" ng-click="actionDelete(row)"><i class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="row">
-            <div class="col-md-5 col-sm-12">
-                Showing {{ pageInfo.first }} - {{ pageInfo.last }} of {{ pageInfo.total }} entries.
-            </div>
-            <div class="col-md-7 col-sm-12">
-                <pagination class="pagination pull-right" ng-model="pagination.current" total-items="pagination.total" items-per-page="pagination.perPage" max-size="pagination.maxSize" boundary-links="true" rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
-            </div>
+    <table class="table table-bordered table-striped table-hover dataTable">
+        <thead>
+            <th ng-repeat="colunmName in tableHead" ng-show="showColumn[$index]" ng-click="orderBy(tableCell[$index])" ng-class="{ 'sorting_asc': orderByField === tableCell[$index] && orderReverse === false, 'sorting_desc': orderByField === tableCell[$index] && orderReverse === true }" class="sorting">{{ colunmName }}</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in tableSource | filter: searchText | orderBy: orderByField : orderReverse | smarterLimitTo: pagination.perPage : ((pagination.current - 1) * pagination.perPage)">
+                <td ng-repeat="fieldName in tableCell" ng-show="showColumn[$index]">
+                    <span ng-if="labelIndex !== $index">{{ row[fieldName] }}</span>
+                    <span ng-if="labelIndex === $index" class="label" ng-class="{ {{ labelSuccess }}: 'label-success', {{ labelDanger }}: 'label-danger' }[row.status]">{{ row.status }}</span>
+                </td>
+                <td>
+                    <a href="" ng-click="actionRead(row)"><i class="fa fa-search-plus"></i></a>
+                    <a href="" ng-click="actionUpdate(row)"><i class="fa fa-pencil"></i></a>
+                    <a href="" ng-click="actionDelete(row)"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-5 col-sm-12">
+            Showing {{ pageInfo.first }} - {{ pageInfo.last }} of {{ pageInfo.total }} entries.
+        </div>
+        <div class="col-md-7 col-sm-12">
+            <pagination class="pagination pull-right" ng-model="pagination.current" total-items="pagination.total" items-per-page="pagination.perPage" max-size="pagination.maxSize" boundary-links="true" rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
         </div>
     </div>
+</div>

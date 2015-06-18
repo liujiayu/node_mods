@@ -83,7 +83,7 @@
         }
       ];
 
-      $scope.colunmName = ['Facility ID', 'Facility Full Name', 'Facility Short Name', 'Status'];
+      $scope.columnName = ['Facility ID', 'Facility Full Name', 'Facility Short Name', 'Status'];
       $scope.fieldName = ['id', 'fullName', 'shortName', 'status'];
 
       $scope.showColumn1 = true;
