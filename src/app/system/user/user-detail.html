@@ -116,12 +116,13 @@
                     <div class="pull-right">
                         <input type="submit" class="btn btn-success" value="Add" ng-if="isNewUser">
                         <input type="button" class="btn btn-default" value="Cancel" ng-click="cancel()">
-                        <input type="button" class="btn btn-default" value="Continue" ng-click="next(user)">
                         <input type="button" class="btn btn-success" value="Update" ng-if="!isNewUser" ng-click="updateUser(user)" ng-disabled="!isEditable">
                     </div>
                 </form>
             </div>
         </div>
+        <basic-table table-title="'Facility List'" table-source="facilities" table-head="colunmName" table-cell="fieldName" action-update="editFacility" label-index="3" label-success="'Active'" label-danger="'Inactive'">
+        </basic-table>
     </div>
 </div>
 

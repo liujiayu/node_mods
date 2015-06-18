@@ -61,16 +61,6 @@
             isNewUser: null
           }
         })
-        .state('user-facility', {
-          url: '/user/:userId/facility',
-          templateUrl: 'app/system/user/user-facility.html',
-          controller: 'UserFacilityCtrl',
-          params: { 
-            userId: null, 
-            isEditable: null,
-            isNewUser: null
-          }
-        })
         .state('facility', {
           url: '/facility',
           templateUrl: 'app/system/physical/facility.html',
