@@ -19,6 +19,7 @@
           labelDanger: '=',
           toggleColumnActive: '=',
           toggleColumnSource: '=',
+          checkboxActive: '=',
           actionCreate: '=',
           actionRead: '=',
           actionUpdate: '=',
