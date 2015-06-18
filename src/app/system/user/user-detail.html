@@ -121,8 +121,19 @@
                 </form>
             </div>
         </div>
-        <basic-table table-title="'Facility List'" table-source="facilities" table-head="colunmName" table-cell="fieldName" action-update="editFacility" label-index="3" label-success="'Active'" label-danger="'Inactive'">
-        </basic-table>
+        <div class="portlet box blue-madison">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-globe"></i>Facility List
+                </div>
+                <div class="actions">
+                    <div class="btn-group">
+                        <toggle-column></toggle-column>
+                    </div>
+                </div>
+            </div>
+            <basic-table table-source="facilities" table-head="columnName" table-cell="fieldName" action-update="editFacility" label-index="3" label-success="'Active'" label-danger="'Inactive'" toggle-column-active="true" toggle-column-source="showColumn" checkbox-active="true"></basic-table>
+        </div>
     </div>
 </div>
 

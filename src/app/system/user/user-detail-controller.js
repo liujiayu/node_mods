@@ -120,7 +120,7 @@
         }
       ];
 
-      $scope.colunmName = ['Facility ID', 'Facility Full Name', 'Facility Short Name', 'Status'];
+      $scope.columnName = ['Facility ID', 'Facility Full Name', 'Facility Short Name', 'Status'];
       $scope.fieldName = ['id', 'fullName', 'shortName', 'status'];
 
       console.log('isNewUser: ', $stateParams.isNewUser);
