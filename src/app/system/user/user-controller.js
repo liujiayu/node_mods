@@ -30,8 +30,8 @@
       };
 
       $scope.default_locale = [];
-
       $scope.roles = [];
+
 
 
       // Scope actions

@@ -47,7 +47,10 @@
                   return $ocLazyLoad.load({
                       name: 'qcs',
                       insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
-                      files: []
+                      files: [
+                        "assets/metronic/global/plugins/icheck/skins/all.css",
+                        "assets/metronic/global/plugins/icheck/icheck.min.js"
+                      ]
                   });
               }]
           }
